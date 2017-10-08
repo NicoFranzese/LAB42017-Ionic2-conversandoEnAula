@@ -1,0 +1,58 @@
+<!--
+  Generated template for the ListadoMensajesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="bluedark">
+        <ion-title style="text-align:center"><i class="fa fa-2x fa-comments-o" aria-hidden="true"></i>&nbsp;{{aula}}</ion-title>
+      </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content class="fondo">
+    
+      <div style="margin-top:15px" class="animated fadeInUp">
+        <div class="row mb-2" *ngFor="let message of arrMensajes ; let i = index">
+          <div class="col-12">
+            <div class="arrow_box_rigth" *ngIf="message.nombre == usuario">
+              {{message.mensaje}}
+            </div>
+            <div class="arrow_box_left" *ngIf="message.nombre != usuario">
+              <span class="autor">{{message.nombre}}:</span> {{message.mensaje}}
+            </div>
+          </div>
+        </div>
+        <!-- <div id="caja_bottom"></div> -->
+        <div id="ultima_caja"></div>
+      </div>
+
+    </ion-content>
+    
+    <ion-footer no-shadow>
+      <ion-toolbar position="bottom">
+        <div class="form-inline mt-4 animated bounceInLeft" id="campoEscribirMsj">
+          <table>
+            <tr>
+              <td>
+                  <textarea class="form-control" id="escribirMsj" maxlength="60" placeholder="Escribir mensaje" rows="1" [(ngModel)]="mensaje"></textarea>
+              </td>
+              <td>
+                  <a id="btn_enviar" (click)="EnviarMensaje(mensaje)" href="#caja_bottom"><img src="./assets/enviar.jpg" id="enviarIcon" width="40" height="35"></a>
+                </td>
+            </tr>
+          </table>
+          <!-- <div class="form-group">
+            <textarea class="form-control" id="escribirMsj" maxlength="60" placeholder="Escribir mensaje" rows="1" [(ngModel)]="mensaje"></textarea>
+            <a id="btn_enviar" (click)="EnviarMensaje(mensaje)" href="#caja_bottom"><img src="./assets/enviar.jpg" id="enviarIcon" width="40" height="35"></a>
+          </div> -->
+          <!--<div class="form-group">
+            <a id="btn_enviar" (click)="EnviarMensaje(mensaje)" href="#caja_bottom"><img src="./assets/enviar.jpg" id="enviarIcon" width="30" height="40"></a>
+          </div>-->
+        </div>
+      </ion-toolbar>
+    </ion-footer>

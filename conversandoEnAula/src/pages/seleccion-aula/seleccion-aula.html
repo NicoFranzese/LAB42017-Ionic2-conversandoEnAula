@@ -1,0 +1,34 @@
+<!--
+  Generated template for the SeleccionAulaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>seleccion Aula</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- <ion-view view-title="Login" name="login-view"> -->
+    <ion-content class="padding">
+        <div class="list list-inset">
+        <ion-item>
+          <ion-label class = "item item-input item-select item-positive">Selección Aula</ion-label>   
+            <ion-select [(ngModel)]="aula" id="aula" name="aula">
+                <ion-option selected>Seleccione Aula</ion-option>
+                <ion-option>PPS-4A</ion-option>
+                <ion-option>PPS-4B</ion-option>
+            </ion-select>
+          </ion-item>
+        <button ion-button 
+        (click)="SeleccionAula(aula)">Aceptar</button>
+        <!-- <button class="button button-block button-calm" (click)="Login(usuario, password, tipo)">Login</button> -->
+    </div>
+    </ion-content>
+ <!-- </ion-view>  -->
+</ion-content>
