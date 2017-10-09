@@ -46,8 +46,14 @@ export class MensajeProvider {
         break;
     }
 
-    mensajeObservable.push({ mensaje: mensaje, nombre: nombre });
+    mensajeObservable.push({ mensaje: mensaje, nombre: nombre, hora: this.convertDate(Date.now())});
 
+  }
+
+  convertDate(inputFormat) {
+    function pad(s) { return (s < 10) ? '0' + s : s; }
+    var d = new Date(inputFormat);
+    return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
   }
 
 }

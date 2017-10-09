@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { ToastController } from 'ionic-angular';
 //import { TabsPage } from '../tabs/tabs';
 import { SeleccionAulaPage } from '../seleccion-aula/seleccion-aula';
 /**
@@ -20,7 +20,7 @@ export class LoginPage {
   private password;
   private tipo;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -32,7 +32,7 @@ export class LoginPage {
 
     if ((this.usuario == "") || (this.usuario == undefined) || (this.usuario == null) ||
       (this.usuario == "") || (this.usuario == undefined) || (this.usuario == null)) {
-      alert("Debe ingresar usuario y contraseña");
+        this.presentToast("Debe ingresar usuario y contraseña"); 
 
     } else {
       localStorage.setItem("usuario", usuario);
@@ -63,5 +63,13 @@ export class LoginPage {
       this.usuario = 'J2';
       this.password = '55';
     }
+  }
+
+  private presentToast(mensaje) {
+    let toast = this.toastCtrl.create({
+      message: mensaje,
+      duration: 3000
+    });
+    toast.present();
   }
 }

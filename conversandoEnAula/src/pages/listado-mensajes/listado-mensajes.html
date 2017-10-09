@@ -7,7 +7,20 @@
 <ion-header>
 
     <ion-navbar color="bluedark">
-        <ion-title style="text-align:center"><i class="fa fa-2x fa-comments-o" aria-hidden="true"></i>&nbsp;{{aula}}</ion-title>
+      <table>
+        <tr>
+          <td style="width: 50%; text-align: center;">
+              <ion-title style="text-align:center"><img src="./assets/mensajeria.png" width="30" height="30">&nbsp;{{aula}}</ion-title>
+          </td>
+          <td style="width: 50%; text-align:right; ">
+              <div style="text-align:right">  
+                  <a (click)="logout()"><img src="./assets/salir.png" id="enviarIcon" width="25" height="25"></a>
+              </div>
+          </td>
+        </tr>
+      </table>
+        
+          
       </ion-navbar>
 
 </ion-header>
@@ -21,9 +34,13 @@
           <div class="col-12">
             <div class="arrow_box_rigth" *ngIf="message.nombre == usuario">
               {{message.mensaje}}
+              <br>
+              <span class="fechaMensaje">{{message.hora}}</span>
             </div>
             <div class="arrow_box_left" *ngIf="message.nombre != usuario">
               <span class="autor">{{message.nombre}}:</span> {{message.mensaje}}
+              <br>
+              <span class="fechaMensaje">{{message.hora}}</span> 
             </div>
           </div>
         </div>
@@ -42,7 +59,7 @@
                   <textarea class="form-control" id="escribirMsj" maxlength="60" placeholder="Escribir mensaje" rows="1" [(ngModel)]="mensaje"></textarea>
               </td>
               <td>
-                  <a id="btn_enviar" (click)="EnviarMensaje(mensaje)" href="#caja_bottom"><img src="./assets/enviar.jpg" id="enviarIcon" width="40" height="35"></a>
+                  <a id="btn_enviar" (click)="EnviarMensaje(mensaje)" href="#caja_bottom"><img src="./assets/enviar.png" id="enviarIcon" width="40" height="35"></a>
                 </td>
             </tr>
           </table>

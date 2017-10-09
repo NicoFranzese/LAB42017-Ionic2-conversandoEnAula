@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { MensajeProvider } from '../../providers/mensaje/mensaje';
-
+import { ToastController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { LoadingController } from 'ionic-angular';
 
@@ -27,7 +27,8 @@ export class ListadoMensajesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public servicioMensaje: MensajeProvider,
-    private loadingCtrl: LoadingController) {
+    private loadingCtrl: LoadingController,
+    private toastCtrl: ToastController) {
 
     this.createLoading("Cargando mensajes...");
     this.aula = localStorage.getItem("aula")
@@ -56,8 +57,10 @@ export class ListadoMensajesPage {
 
   EnviarMensaje(men) {
     if ((men == "") || (men == undefined) || (men == null)) {
-      alert("Debe ingresar un mensaje");
-    } else {
+      this.presentToast("Debe ingresar un mensaje"); 
+    }else if(men.length > "60"){
+      this.presentToast("El mensaje sobre pasa los 60 caracteres."); 
+    }else {
       this.servicioMensaje.postMensaje(this.aula, localStorage.getItem("usuario"), men);
       this.mensaje = "";
     }
@@ -79,6 +82,14 @@ export class ListadoMensajesPage {
       </div>` + message
     });
     this.loading.present();
+  }
+
+  private presentToast(mensaje) {
+    let toast = this.toastCtrl.create({
+      message: mensaje,
+      duration: 3000
+    });
+    toast.present();
   }
 
 }
