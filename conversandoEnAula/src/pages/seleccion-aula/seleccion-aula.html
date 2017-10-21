@@ -15,18 +15,20 @@
 
 <ion-content padding>
   <!-- <ion-view view-title="Login" name="login-view"> -->
-    <ion-content class="padding">
-        <div class="list list-inset">
-        <ion-item>
+    <ion-content class="padding" style="background-color:yellow">
+        <div class="list list-inset" style="background-color:yellow">
+        <!-- <ion-item>
           <ion-label class = "item item-input item-select item-positive">Selección Aula</ion-label>   
             <ion-select [(ngModel)]="aula" id="aula" name="aula">
                 <ion-option selected>Seleccione Aula</ion-option>
                 <ion-option>PPS-4A</ion-option>
                 <ion-option>PPS-4B</ion-option>
             </ion-select>
-          </ion-item>
-        <button ion-button 
-        (click)="SeleccionAula(aula)">Aceptar</button>
+          </ion-item> -->
+          <button ion-button block color="danger"
+          (click)="SeleccionAula('PPS-4A')">PPS-4A</button>
+          <button ion-button block color="danger"
+          (click)="SeleccionAula('PPS-4B')">PPS-4B</button>
         <!-- <button class="button button-block button-calm" (click)="Login(usuario, password, tipo)">Login</button> -->
     </div>
     </ion-content>

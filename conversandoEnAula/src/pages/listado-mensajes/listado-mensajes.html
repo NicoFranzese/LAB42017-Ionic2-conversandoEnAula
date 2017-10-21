@@ -9,8 +9,8 @@
     <ion-navbar color="bluedark">
       <table>
         <tr>
-          <td style="width: 50%; text-align: center;">
-              <ion-title style="text-align:center"><img src="./assets/mensajeria.png" width="30" height="30">&nbsp;{{aula}}</ion-title>
+          <td style="width: 50%; text-align: left;">
+              <ion-title style="text-align:left"><img src="./assets/mensajeria.png" width="30" height="30">&nbsp;{{aula}}</ion-title>
           </td>
           <td style="width: 50%; text-align:right; ">
               <div style="text-align:right">  
@@ -56,7 +56,7 @@
           <table>
             <tr>
               <td>
-                  <textarea class="form-control" id="escribirMsj" maxlength="60" placeholder="Escribir mensaje" rows="1" [(ngModel)]="mensaje"></textarea>
+                  <textarea class="form-control" id="escribirMsj" placeholder="Escribir mensaje" rows="1" [(ngModel)]="mensaje"></textarea>
               </td>
               <td>
                   <a id="btn_enviar" (click)="EnviarMensaje(mensaje)" href="#caja_bottom"><img src="./assets/enviar.png" id="enviarIcon" width="40" height="35"></a>

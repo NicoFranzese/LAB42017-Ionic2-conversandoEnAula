@@ -18,7 +18,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { CONFIG } from './firebase';
 import { MensajeProvider } from '../providers/mensaje/mensaje';
-import { Http } from '@angular/http';
+// import { Http } from '@angular/http';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
